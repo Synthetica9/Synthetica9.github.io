@@ -1,0 +1,37 @@
+.centerDiv {
+  width: 800px;
+  border-radius: 5px;
+  padding: 10px;
+  height: 100pt;
+  position: absolute;
+  margin-top: -25px;a
+  margin-left: -400px;
+  top: 50%;
+  left: 50%;
+  font-family: Ubuntu;
+  font-weight: 100;
+}
+
+.feeds {
+
+}
+
+body {
+  background-color: #282c34;
+}
+
+.centerDiv a {
+  font-size: 50pt;
+  text-decoration: none;
+  color: #abb2bf;
+}
+
+.centerDiv li {
+  font-size: 25pt;
+  color: #abb2bf;
+
+}
+
+ul {
+  list-style-type: none;
+}
