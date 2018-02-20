@@ -1,35 +1,22 @@
-.centerDiv {
-  width: 800px;
+.bottomDiv {
   border-radius: 5px;
-  padding: 10px;
-  height: 100pt;
-  position: absolute;
-  margin-top: -25px;a
-  margin-left: -400px;
-  top: 50%;
-  left: 50%;
+  bottom:0px;
   font-family: Ubuntu;
   font-weight: 100;
-}
-
-.feeds {
-
+  padding: 10px;
+  position:fixed;
+  width:90%;
+  text-align: right;
 }
 
 body {
   background-color: #282c34;
 }
 
-.centerDiv a {
+.bottomDiv a {
   font-size: 50pt;
   text-decoration: none;
   color: #abb2bf;
-}
-
-.centerDiv li {
-  font-size: 25pt;
-  color: #abb2bf;
-
 }
 
 ul {
