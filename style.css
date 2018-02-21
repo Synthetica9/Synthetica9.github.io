@@ -19,6 +19,10 @@ body {
   color: #abb2bf;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 ul {
   list-style-type: none;
 }
