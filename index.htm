@@ -1,39 +1,42 @@
 <html>
+
 <head>
   <title>~</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script type="text/javascript">
-  document.onkeydown = function(evt) {
-    evt = evt || window.event;
-    linkList = document.getElementById("linkList");
-    links = linkList.getElementsByTagName("a");
-    for (var i = 0; i < links.length; ++i) {
-      link = links[i];
-      underlined = link.getElementsByTagName("u")[0]
-      hotkey = underlined.innerText || underlined.textContent;
-      hotkeyCode = hotkey.toUpperCase().charCodeAt(0);
+    document.onkeydown = function (evt) {
+      evt = evt || window.event;
+      linkList = document.getElementById("linkList");
+      links = linkList.getElementsByTagName("a");
+      for (var i = 0; i < links.length; ++i) {
+        link = links[i];
+        underlined = link.getElementsByTagName("u")[0]
+        hotkey = underlined.innerText || underlined.textContent;
+        hotkeyCode = hotkey.toUpperCase().charCodeAt(0);
 
-      if (hotkeyCode == evt.keyCode) {
-        link.click();
+        if (hotkeyCode == evt.keyCode) {
+          link.click();
+        }
       }
     }
-  }
   </script>
 </head>
+
 <body>
   <div class="bottomDiv">
-      <ul id="linkList">
-        <li><a href="https://brightspace.ru.nl"><u>b</u>rightspace</a>
-        <li><a href="https://calendar.google.com">google <u>c</u>alendar</a>
-        <li><a href="https://duckduckgo.com/"><u>d</u>uckduckgo</a>
-        <li><a href="https://github.com/"><u>g</u>ithub</a>
-        <li><a href="https://inbox.google.com"><u>i</u>nbox</a>
-        <li><a href="https://reddit.com"><u>r</u>eddit</a>
-        <li><a href="https://stack.synthetica.be"><u>s</u>tack</a>
-        <li><a href="https://web.whatsapp.com"><u>w</u>hatsapp web</a>
-        <li><a href="https://xkcd.com"><u>x</u>kcd</a>
-        <li><a href="https://youtube.com"><u>y</u>outube</a>
-      </ul>
+    <ul id="linkList">
+      <li><a href="https://brightspace.ru.nl"><u>b</u>rightspace</a>
+      <li><a href="https://calendar.google.com">google <u>c</u>alendar</a>
+      <li><a href="https://duckduckgo.com/"><u>d</u>uckduckgo</a>
+      <li><a href="https://github.com/"><u>g</u>ithub</a>
+      <li><a href="https://inbox.google.com"><u>i</u>nbox</a>
+      <li><a href="https://reddit.com"><u>r</u>eddit</a>
+      <li><a href="https://stack.synthetica.be"><u>s</u>tack</a>
+      <li><a href="https://web.whatsapp.com"><u>w</u>hatsapp web</a>
+      <li><a href="https://xkcd.com"><u>x</u>kcd</a>
+      <li><a href="https://youtube.com"><u>y</u>outube</a>
+    </ul>
   </div>
 </body>
+
 </html>
