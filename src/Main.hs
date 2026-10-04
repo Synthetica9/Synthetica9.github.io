@@ -9,7 +9,9 @@ links :: [Link]
 links =
   [ Link "https://plasmatrap.com/@syn" "fedi" True,
     Link "https://github.com/synthetica9" "github" False,
+    Link "https://codeberg.org/syn9" "codeberg" False,
     Link "https://last.fm/user/synthetica9" "last.fm" False,
+    Link "https://listenbrainz.org/user/-syn/" "listenbrainz" False,
     Link "https://traewelling.de/@syn" "träwelling" False
   ]
 
