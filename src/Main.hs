@@ -47,3 +47,10 @@ main = hakyll $ do
         >>= applyAsTemplate indexContext
         >>= loadAndApplyTemplate "templates/default.html" indexContext
         >>= relativizeUrls
+
+  match "pages/*.md" $ do
+    route $ setExtension "html"
+    compile $
+      pandocCompiler
+        >>= loadAndApplyTemplate "templates/default.html" mainContext
+        >>= relativizeUrls
