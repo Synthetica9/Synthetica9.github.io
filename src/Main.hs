@@ -2,6 +2,7 @@ module Main where
 
 import Extra
 import Hakyll
+import Hakyll.Web.Sass (sassCompiler)
 
 data Link = Link {url :: String, desc :: String, relMe :: Bool}
 
@@ -37,6 +38,11 @@ mainContext = constField "links" linkBlock <> defaultContext
 main :: IO ()
 main = hakyll $ do
   match "templates/*" $ compile templateCompiler
+
+  match "css/*.sass" $ do
+    route $ setExtension "css"
+    let compressCssItem = fmap compressCss
+    compile (compressCssItem <$> sassCompiler)
 
   match "index.html" $ do
     route idRoute
