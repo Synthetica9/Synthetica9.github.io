@@ -20,7 +20,7 @@ renderLink :: Link -> String
 renderLink link =
   "<a href=\""
     <> link.url
-    <> "\""
+    <> "\" target=\"_blank\""
     <> mwhen link.relMe " rel=\"me\" "
     <> ">"
     <> escapeHtml link.desc
