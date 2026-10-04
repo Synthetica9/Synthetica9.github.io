@@ -14,7 +14,9 @@ license:         NONE
 common common-options
   build-depends:      base >=4.9 && <5
   default-language:   Haskell2010
-  default-extensions: 
+  default-extensions: OverloadedStrings
+    , DuplicateRecordFields
+    , OverloadedRecordDot
   ghc-options:
 
 executable synthetica-homepage-exe
@@ -23,3 +25,4 @@ executable synthetica-homepage-exe
   main-is:        Main.hs
   ghc-options:    -threaded -rtsopts -with-rtsopts=-N
   build-depends:
+    hakyll, extra
