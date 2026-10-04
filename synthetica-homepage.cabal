@@ -1,0 +1,25 @@
+cabal-version:   2.4
+name:            synthetica-homepage
+version:         0
+tested-with:     GHC ==8.6.3 || ==8.8.3 || ==8.10.5
+description:     Homepage for synthetica.be
+author:          synthetica
+maintainer:      synthetica - git@hilhorst.be
+copyright:       2026-10-04 synthetica
+build-type:      Simple
+extra-doc-files: 
+  README.md
+license:         NONE
+  
+common common-options
+  build-depends:      base >=4.9 && <5
+  default-language:   Haskell2010
+  default-extensions: 
+  ghc-options:
+
+executable synthetica-homepage-exe
+  import:         common-options
+  hs-source-dirs: src
+  main-is:        Main.hs
+  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
