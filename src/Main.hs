@@ -37,6 +37,7 @@ mainContext = constField "links" linkBlock <> defaultContext
 
 main :: IO ()
 main = hakyll $ do
+  -- TODO: sitemap: https://www.rohanjain.in/hakyll-sitemap/
   match "templates/*" $ compile templateCompiler
 
   match "css/*.sass" $ do

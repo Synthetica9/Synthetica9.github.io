@@ -1,10 +1,13 @@
+// TODO: host this locally
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
 // https://coolors.co/faf7f6-b49092-191702-cdb6b6-342c1b
 
-$snow: #faf7f6ff;
-$rosy-taupe: #b49092ff;
-$pitch-black: #191702ff;
-$almond-silk: #cdb6b6ff;
-$dark-khaki: #342c1bff;
+$snow: #faf7f6ff
+$rosy-taupe: #b49092ff
+$pitch-black: #191702ff
+$almond-silk: #cdb6b6ff
+$dark-khaki: #342c1bff
 
 $primary-background: $pitch-black
 $primary-foreground: $snow
@@ -12,12 +15,49 @@ $primary-foreground: $snow
 $primary-variant: $almond-silk
 $secondary-variant: $rosy-taupe
 
+$sidebar-width: 15rem
+
 body
     background-color: $primary-background
     color: $primary-foreground
+    max-width: 60rem
+    margin: auto
+    font-family: 'sans-serif'
+
+@mixin fira-code()
+    font-family: 'Fira Code', monospace
+
+    @supports (font-variation-settings: normal)
+        font-family: 'Fira Code VF', monospace
+
+@mixin comment-list()
+    @include fira-code()
+    list-style-type: "//"
+
+    li:before
+        content: ""
+        margin-left: 0.3em
 
 a
     color: $primary-variant
 
 a:visited
     color: $secondary-variant
+
+#navigation
+    float: left
+    position: fixed
+    width: $sidebar-width
+    padding: 2rem 2rem 2rem 2rem
+    @include fira-code()
+    ul
+        @include comment-list()
+
+h1, h2, h3
+    @include fira-code()
+
+#content
+    margin: 0 0 0 $sidebar-width
+    padding: 2rem 2rem 2rem 2rem
+
+// TODO: https://stackoverflow.com/questions/29960458/making-a-simple-layout-with-a-sidebar-in-html-css
