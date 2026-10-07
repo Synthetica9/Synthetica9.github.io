@@ -1,0 +1,13 @@
+env:
+  CARGO_TERM_COLOR: always
+  NIX_CONFIG: "experimental-features = nix-command flakes"
+
+jobs:
+  build:
+    name: build
+    # Change to a valid Forgejo runner image
+    # runs-on: ubuntu-latest
+    runs-on: nix
+
+    steps:
+      run: nix --version
