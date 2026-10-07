@@ -11,4 +11,4 @@ jobs:
       image: nixos
 
     steps:
-      run: nix --version
+      - run: nix --version
