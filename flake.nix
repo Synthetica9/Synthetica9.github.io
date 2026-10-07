@@ -17,6 +17,12 @@
             };
         };
         synthetica-homepage = final.haskell.lib.compose.justStaticExecutables final.haskellPackages.synthetica-homepage;
+        pages = final.runCommand "page" { nativeBuildInputs = [final.synthetica-homepage]; } ''
+          cp --no-preserve=mode -r ${final.synthetica-homepage.src} src
+          cd src
+          synthetica-homepage-exe rebuild
+          cp -r _site $out
+        '';
       };
       perSystem =
         system:
@@ -39,6 +45,7 @@
               pkgs.bashInteractive
             ];
           };
+          packages = { inherit (pkgs) synthetica-homepage pages; };
           defaultPackage = pkgs.synthetica-homepage;
         };
     in

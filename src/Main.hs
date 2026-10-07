@@ -1,6 +1,7 @@
 module Main where
 
 import Extra
+import qualified GHC.IO.Encoding as E
 import Hakyll
 import Hakyll.Web.Sass (sassCompiler)
 
@@ -36,28 +37,30 @@ linkBlock =
 mainContext = constField "links" linkBlock <> defaultContext
 
 main :: IO ()
-main = hakyll $ do
-  -- TODO: sitemap: https://www.rohanjain.in/hakyll-sitemap/
-  match "templates/*" $ compile templateCompiler
+main = do
+  E.setLocaleEncoding E.utf8
+  hakyll $ do
+    -- TODO: sitemap: https://www.rohanjain.in/hakyll-sitemap/
+    match "templates/*" $ compile templateCompiler
 
-  match "css/*.sass" $ do
-    route $ setExtension "css"
-    let compressCssItem = fmap compressCss
-    compile (compressCssItem <$> sassCompiler)
+    match "css/*.sass" $ do
+      route $ setExtension "css"
+      let compressCssItem = fmap compressCss
+      compile (compressCssItem <$> sassCompiler)
 
-  match "index.html" $ do
-    route idRoute
-    let indexContext = constField "title" "home" <> mainContext
+    match "index.html" $ do
+      route idRoute
+      let indexContext = constField "title" "home" <> mainContext
 
-    compile $ do
-      getResourceBody
-        >>= applyAsTemplate indexContext
-        >>= loadAndApplyTemplate "templates/default.html" indexContext
-        >>= relativizeUrls
+      compile $ do
+        getResourceBody
+          >>= applyAsTemplate indexContext
+          >>= loadAndApplyTemplate "templates/default.html" indexContext
+          >>= relativizeUrls
 
-  match "pages/*.md" $ do
-    route $ setExtension "html"
-    compile $
-      pandocCompiler
-        >>= loadAndApplyTemplate "templates/default.html" mainContext
-        >>= relativizeUrls
+    match "pages/*.md" $ do
+      route $ setExtension "html"
+      compile $
+        pandocCompiler
+          >>= loadAndApplyTemplate "templates/default.html" mainContext
+          >>= relativizeUrls
