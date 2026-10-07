@@ -5,9 +5,10 @@ env:
 jobs:
   build:
     name: build
-    # Change to a valid Forgejo runner image
-    # runs-on: ubuntu-latest
-    runs-on: nix
+    runs-on: codeberg-medium
+
+    container:
+      image: nixos
 
     steps:
       run: nix --version
