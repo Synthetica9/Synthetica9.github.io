@@ -11,7 +11,7 @@ jobs:
     runs-on: codeberg-medium
 
     container:
-      image: nixos
+      image: nixos/nix
 
     steps:
       - run: nix --version
