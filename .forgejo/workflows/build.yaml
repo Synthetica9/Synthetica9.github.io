@@ -1,3 +1,6 @@
+on:
+  push:
+
 env:
   CARGO_TERM_COLOR: always
   NIX_CONFIG: "experimental-features = nix-command flakes"
