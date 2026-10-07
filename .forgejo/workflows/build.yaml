@@ -15,4 +15,6 @@ jobs:
 
     steps:
       - run: nix --version
+      - name: Check out
+        uses: https://data.forgejo.org/actions/checkout@v6
       - run: nix build -L .#pages
