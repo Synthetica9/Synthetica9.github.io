@@ -48,18 +48,8 @@ main = do
       let compressCssItem = fmap compressCss
       compile (compressCssItem <$> sassCompiler)
 
-    match "index.html" $ do
-      route idRoute
-      let indexContext = constField "title" "home" <> mainContext
-
-      compile $ do
-        getResourceBody
-          >>= applyAsTemplate indexContext
-          >>= loadAndApplyTemplate "templates/default.html" indexContext
-          >>= relativizeUrls
-
     match "pages/*.md" $ do
-      route $ setExtension "html"
+      route $ (gsubRoute "pages/" (const "")) `composeRoutes` setExtension "html"
       compile $
         pandocCompiler
           >>= loadAndApplyTemplate "templates/default.html" mainContext
